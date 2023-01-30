@@ -1,0 +1,17 @@
+
+extends layout
+
+block layout-content
+  img(src="logo.png")
+  div.View
+    div.Message
+      div.Title
+        h1 Treck traffic automates accessing and archiving traffic data
+        p Helping us Know about traffic conditions on our roads
+       
+     
+    div.NavButtons
+      a#excelDb(href="./output"  )  Dowload as excel file
+      a#jsonDb(href="./backup") Download as Json file  
+      a#archive(href="./archives")
+       div.archivefile Download as archive

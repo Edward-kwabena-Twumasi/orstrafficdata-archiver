@@ -1,0 +1,42 @@
+//Pug is a view engine for creating views using html-like syntax
+//It works by indentation and not nesting. Any reformatting may destroy the indentation
+//Which will affect the syntax and its output
+
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="theme-color", content="#000000")
+    title #{title} | Treck  Traffic
+    link(rel="stylesheet" href="./styles.css")
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carme&display=swap" rel="stylesheet">
+
+  body
+    div#root
+      block layout-content
+    script. 
+     console.log("Doing node in script tag") 
+     console.log("scrip inside pug");
+     
+     const arch=document.getElementById("archive") 
+     arch.addEventListener('click',()=>{
+       window.loaction.href="/archives"
+     },false) 
+
+     const exelDb=document.getElementById("excelDb") 
+
+     excelDb.addEventListener('click',()=>{
+      window.loaction.href="/output"
+
+      },false) 
+      const jsonDb=document.getElementById("jsonDb") 
+      
+      jsonDb.addEventListener('click',()=>{
+              window.loaction.href="/backup"
+
+      },false)   
+         
