@@ -40,7 +40,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
 
         }) ;
 
-        console.log(`Item with id ${Response.id} inserted`)
+        console.log(`Item with id ${Response.id} inserted in database`)
              
     //Catch errors if requests couldnt be made 
     } catch (error) {
