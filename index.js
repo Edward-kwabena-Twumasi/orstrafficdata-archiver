@@ -2,7 +2,7 @@
 'use strict'
 
 const schedule = require('node-schedule');
-const express=require('express');
+const express = require('express');
 const path=require('path');
 const server=express();
 const port=process.env.PORT || 5000;
@@ -82,7 +82,7 @@ function prepareRequests() {
 
 //Funtion to calculate the program preexecution time
 function getPrerunTime(startHour,endHour) {
-  let preRunnTime = 0,
+  let preRunnTime = 0;
 
       if (endHour-startHour==24) {
        console.log("There should be at least an hour for program to prepare @ app_calender ,line 51")
@@ -100,7 +100,8 @@ function getPrerunTime(startHour,endHour) {
           } 
         else 
         {
-          preRunnTime = endHour + averageIdleTime
+          //preRunnTime = endHour + averageIdleTime
+          preRunnTime = startHour
         }     
     
         console.log("Program inactive hours per day"+ programIdleTime)
