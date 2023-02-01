@@ -79,7 +79,7 @@ exports.sheduleRequests = function Cron(params) {
 
                   getTraffic.getTrafficInfo(request, requestId, departureTime );
 
-                  id+=1;
+                  index += 1;
                
                 });
             
