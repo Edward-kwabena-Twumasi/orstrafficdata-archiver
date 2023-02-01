@@ -1,4 +1,5 @@
-const {Sequelize , Model,  DataType} = require('sequelize');
+const {Sequelize , Model, DataTypes}  = require('sequelize');
+const path = require('path')
 
 const sequelize = new Sequelize({
     dialect: 'sqlite',
@@ -11,32 +12,32 @@ const sequelize = new Sequelize({
  TrafficResponse.init(
 {
     requestId : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
     departureTime : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
 
     distance : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
     duration : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },   
     trafficDuration : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
      destinations : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
     origins : {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         allowNul: false,
     },
     },

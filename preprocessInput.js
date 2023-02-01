@@ -243,7 +243,7 @@ for (const k in req_times24hr) {
     let destinations=`${palceCordinates.origin_latitude}%2c${palceCordinates.origin_longitude}`;
     let origins=`${palceCordinates.destination_latitude}%2c${palceCordinates.destination_longitude}`;
     let baseUrl="https://maps.googleapis.com/maps/api/distancematrix/json";
-    let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=today&key=${key}`;
+    let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=now&key=${key}`;
 
     return thisRequest;
    
@@ -298,7 +298,7 @@ let ids=[]
    }
    
  }
- requestTimeBatch["strings"] = strings;
+ requestTimeBatch["strings"] = requestStrings;
 
  requestTimeBatch["ids"] = ids;
 
@@ -356,7 +356,7 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
         let newStrings = [];
         
         existingRequestData[data].strings.forEach( string => {
-          newStrings.push( string.replace("today",`${timeinSeconds}`))
+          newStrings.push( string.replace("now",`${timeinSeconds}`))
         });
         
         existingRequestData[data].time = `${newDate}`
@@ -417,7 +417,7 @@ readJsonTempRequestFile.on('error', async function(err) {
       let newStrings=[];
 
       request_data24hr[data].strings.forEach(element => {
-        newStrings.push(element.replace("today",`${timeinSeconds}`))
+        newStrings.push(element.replace("now",`${timeinSeconds}`))
       });
 
       request_data24hr[data].time=`${newtDate.toUTCString()}`
