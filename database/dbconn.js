@@ -1,7 +1,7 @@
 const Db = require('../models/Response')
 
 const db = Db.sequelize;
-const Reasponse = Db.TrafficResponse
+const Response = Db.TrafficResponse
 
 const initializeDb = async () => {
   try {
@@ -14,5 +14,5 @@ const initializeDb = async () => {
 
 module.exports = {
   initializeDb,
-  Reasponse
+  Response
 }

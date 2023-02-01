@@ -4,8 +4,8 @@
 
 'use strict'
 const myxlsx=require("xlsx");
-
-const fs = require('fs')
+const fs = require('fs');
+const fsPromise = require('fs/promises');
 const requestsNdOutput=require('./cron')
 const Stream = require('stream');
 require("dotenv").config()
@@ -365,7 +365,7 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
         //
     
         try {
-          await fs.writeFile("./input/request_data24hr.json", JSON.stringify(existingRequestData,null,2))
+          await fsPromise.writeFile("./input/request_data24hr.json", JSON.stringify(existingRequestData,null,2))
 
           console.log("---------------------------------------------")
           console.log("file  succesfully updated @ app.js ,line 308")
@@ -436,12 +436,14 @@ readJsonTempRequestFile.on('error', async function(err) {
 
     try {
 
-      await fs.writeFile("./input/request_data24hr.json",JSON.stringify(request_data24hr,null,2));
+      await fsPromise.writeFile("./input/request_data24hr.json",JSON.stringify(request_data24hr,null,2));
       console.log("Request file for 24 hour period succesfully created @ app.js, line 357")
       console.log("----------------------------------------------")
       console.log("---------------PROGRAM READY-----------------");
 
+
       requestsNdOutput.sheduleRequests();
+      console.log("I did not wait for the wait................................................")
 
     } 
     catch (error) {
@@ -450,7 +452,7 @@ readJsonTempRequestFile.on('error', async function(err) {
     }
     
      try {
-       await fs.writeFile("./input/request_data24hrTemp.json",JSON.stringify(request_data24hrTemp,null,2))
+       await fsPromise.writeFile("./input/request_data24hrTemp.json",JSON.stringify(request_data24hrTemp,null,2))
         console.log("----------------------------------------------")
         console.log("----------------------------------------------")
         console.log("----------------------------------------------")

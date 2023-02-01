@@ -14,7 +14,7 @@ const manageFiles=require('./filesys');
 const preProcess=require('./preprocessInput');
 const createZip=require('./zipper');
 const backup=require('./backuptofolder');
-const initialiseDb = require('./database/dbconn')
+const dB = require('./database/dbconn')
 var initJob;
 var cancelinitjob=false;
 var inputFile;
@@ -164,7 +164,7 @@ else if (runTime < preProcess.endTime){
 
     }, async function(){
 
-        await initialiseDb.initializeDb();
+        await dB.initializeDb();
 
 
       const currentDateTime = new Date();
@@ -205,7 +205,7 @@ const job = schedule.scheduleJob({ start: programStartDate, end: programStopDate
 
 }, async function(){
 
-  await initialiseDb.initializeDb();
+  await dB.initializeDb();
 
    if (cancelinitjob) {
       initJob.cancel();
@@ -289,7 +289,8 @@ server.get('/backup',(req,res)=>{
 })
 
 //download output,excel file
-server.get('/output',(req,res)=>{
+server.get('/output',async (req,res)=>{
+  const TrafficData = await dB.Response.findAll();
   res.download("./output/output_data.xlsx",(err) =>
   { 
 if (err) {

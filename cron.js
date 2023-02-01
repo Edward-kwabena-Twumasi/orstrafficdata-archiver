@@ -11,7 +11,7 @@ const Stream = require('stream');
 //function begins
 
 exports.sheduleRequests = function Cron(params) {
- 
+   console.log("I am sheeduling requests")
   let totalRequests = 0;
   let requestFileData = "";
 
@@ -25,6 +25,7 @@ exports.sheduleRequests = function Cron(params) {
       writeRequests._write = (chunk, {}, next) => {
         // console.log(chunk.toString());
         requestFileData += chunk;
+       
         next();
        };
 
@@ -44,13 +45,13 @@ exports.sheduleRequests = function Cron(params) {
         const requestArray = requestFileData;
 
       // console.log(requestFileData[requestFileData.length-1]);
-        for (const request in requestArray) {
+        for (const batch in requestArray) {
 
-        departureTimes.push(new Date(requestArray[request].time));
+        departureTimes.push(new Date(requestArray[batch].time));
         
         }
       
-        for (const batch in requestArray.length) {
+        for (const batch in requestArray) {
         
           let count = 0;
            
