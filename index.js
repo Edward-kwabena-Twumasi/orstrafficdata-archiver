@@ -71,7 +71,7 @@ const compEndTime=new Date(Date.UTC(stopYear,stopMonth-1,stopDay+1));
 console.log("Calender stop date : "+ programStopDate.toUTCString());
 
 //Make backup of files
-backup.backupFiles()
+//backup.backupFiles()
 
 //Function to prepare and make requests ready 
 function prepareRequests() {
@@ -290,14 +290,22 @@ server.get('/backup',(req,res)=>{
 
 //download output,excel file
 server.get('/output',async (req,res)=>{
-  const TrafficData = await dB.Response.findAll();
-  res.download("./output/output_data.xlsx",(err) =>
+  try {
+
+     const trafficData = await dB.Response.findAll();
+     window.alert(trafficData.length);
+     return;
+     res.download("./output/output_data.xlsx",(err) =>
   { 
-if (err) {
-  res.send("<h1>Output file not available for download</h1>"
-  )
-}
+    if (err) {
+      res.send("<h1>Output file not available for download</h1>"
+      )
+    }
    });
+
+  } catch (error) {
+    
+  }
 
 
 })
@@ -361,7 +369,7 @@ server.use(express.static(path.join(__dirname, "archives")));
 
 //Let server listen on the specified port
 server.listen(port,"0.0.0.0",()=>{
-  console.log("server listening on "+port +` at ${(new Date().toUTCString())}`);
+  console.log( `server listening on http://localhost:${port} at ${(new Date().toUTCString())}`);
 })
 
 } catch (error) {

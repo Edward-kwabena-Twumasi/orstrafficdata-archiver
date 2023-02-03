@@ -243,7 +243,7 @@ for (const k in req_times24hr) {
     let destinations=`${palceCordinates.origin_latitude}%2c${palceCordinates.origin_longitude}`;
     let origins=`${palceCordinates.destination_latitude}%2c${palceCordinates.destination_longitude}`;
     let baseUrl="https://maps.googleapis.com/maps/api/distancematrix/json";
-    let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=now&key=${key}`;
+    let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=today&key=${key}`;
 
     return thisRequest;
    
@@ -266,16 +266,16 @@ for (const thisrequest in time_ids_array) {
   let timeAndIds = time_ids_array[thisrequest]
   const hour = parseInt( timeAndIds.time*1/60);
   const min = parseInt(timeAndIds.time*1%60);
-  const departure = new Date(year, month, day, hour, min);
+  const requestTime = new Date(year, month, day, hour, min);
 
  let requestTimeBatch = {}
 
- //set the time to empty string to be set later
+ //convert request time to string
 
-let time=`${departure}`;
+let timeString=`${requestTime}`;
 
-//get time for request strings
-requestTimeBatch["time"]=time
+//set time for request batch
+requestTimeBatch["time"]=timeString
 
 //array of all ids and request strings
 let requestStrings=[]
@@ -356,7 +356,7 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
         let newStrings = [];
         
         existingRequestData[data].strings.forEach( string => {
-          newStrings.push( string.replace("now",`${timeinSeconds}`))
+          newStrings.push( string.replace("today",`${timeinSeconds}`))
         });
         
         existingRequestData[data].time = `${newDate}`
@@ -395,9 +395,9 @@ readJsonTempRequestFile.on('error', async function(err) {
     mapIdsToTime();
     //* Replace departure_time value in request strings which has a value of 'now' *//
   
-    let request_data24hr = createDayRequests();
+    
 
-    let request_data24hrTemp = request_data24hr;
+    let request_data24hr = createDayRequests();
 
     for (const data in request_data24hr) {
 
@@ -417,7 +417,7 @@ readJsonTempRequestFile.on('error', async function(err) {
       let newStrings=[];
 
       request_data24hr[data].strings.forEach(element => {
-        newStrings.push(element.replace("now",`${timeinSeconds}`))
+        newStrings.push(element.replace("today",`${timeinSeconds}`))
       });
 
       request_data24hr[data].time=`${newtDate.toUTCString()}`
@@ -451,6 +451,7 @@ readJsonTempRequestFile.on('error', async function(err) {
       console.log(error)
     }
     
+    let request_data24hrTemp = createDayRequests();
      try {
        await fsPromise.writeFile("./input/request_data24hrTemp.json",JSON.stringify(request_data24hrTemp,null,2))
         console.log("----------------------------------------------")

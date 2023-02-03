@@ -29,7 +29,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
        
        } 
      
-      const Response =  await Reasponse.create({
+      const Response =  await Response.create({
           requestId: requestId,
           departure: requestTime,
           distance: distance_km,
@@ -51,6 +51,8 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
         console.log("Request error.......")
         console.log("Request for | "+requestString)
         console.log("Has failed @ request.js line 53")
+        console.log(error.response);
+        
        // console.log(error)
       }
       else

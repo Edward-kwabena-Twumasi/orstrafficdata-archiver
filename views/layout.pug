@@ -23,20 +23,21 @@ html
      console.log("scrip inside pug");
      
      const arch=document.getElementById("archive") 
-     arch.addEventListener('click',()=>{
-       window.loaction.href="/archives"
+     arch.addEventListener('click',async ()=>{
+       await fetch('http://localhost:5000/archives');
      },false) 
 
      const exelDb=document.getElementById("excelDb") 
 
-     excelDb.addEventListener('click',()=>{
-      window.loaction.href="/output"
+     excelDb.addEventListener('click',async ()=>{
+       await fetch('http://localhost:5000/output');
+       window.alert(' output data gotten')
 
       },false) 
       const jsonDb=document.getElementById("jsonDb") 
       
       jsonDb.addEventListener('click',()=>{
-              window.loaction.href="/backup"
+         await fetch('http://localhost:5000/backup');
 
       },false)   
          
