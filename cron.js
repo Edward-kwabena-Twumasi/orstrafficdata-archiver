@@ -11,7 +11,7 @@ const Stream = require('stream');
 //function begins
 
 exports.sheduleRequests = function Cron(params) {
-   console.log("I am sheeduling requests")
+   console.log("... LETS GO ...")
   let totalRequests = 0;
   let requestFileData = "";
 
@@ -45,12 +45,13 @@ exports.sheduleRequests = function Cron(params) {
         const requestArray = requestFileData;
 
       // console.log(requestFileData[requestFileData.length-1]);
+       let startingTime;
         for (const batch in requestArray) {
 
         departureTimes.push(new Date(requestArray[batch].time));
         
         }
-      
+        
         for (const batch in requestArray) {
         
           let count = 0;
@@ -63,7 +64,8 @@ exports.sheduleRequests = function Cron(params) {
           });
 
             totalRequests += count;
-            
+         
+
             const job = schedule.scheduleJob( departureTimes[batch], function(){
               
                 let index = 0;
@@ -86,7 +88,9 @@ exports.sheduleRequests = function Cron(params) {
             });
         
         }
-        console.log(`Scheduled  ${totalRequests} requests  @ cron.js, line 50`);
+         startingTime = new Date(departureTimes[0]).toUTCString();
+
+        console.log(`Scheduled  ${totalRequests} requests  @ cron.js, line 50 on ${new Date().toUTCString()} and starting time is ${startingTime}`);
 
       })
       //read request file stream on error
