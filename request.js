@@ -7,15 +7,12 @@ const { Response } = require('./database/dbconn');
 
 //currentdatase  is supplied as argument.It is the contents of output.json file
 
-exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId, requestTime) {
+exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId, departureTime) {
 
     try {
       //Try making a request to distance matrix api using axios
       const responseJson = await axios.get(requestString);
-      console.log(responseJson);
-   
-      //console.log(response);
-      //console.log(response.data)
+     
       let distance_km ,duration_m, duration_traffic_m, destinations, origins;
 
       destinations = responseJson.data.destination_addresses[0];
@@ -32,7 +29,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
      
       const newTrafficData =  await Response.create({
           requestId: requestId,
-          departure: requestTime,
+          departure: departureTime,
           distance: distance_km.toString(),
           duration: duration_m.toString(),
           trafficDuration: duration_traffic_m.toString(),

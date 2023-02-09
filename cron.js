@@ -32,7 +32,7 @@ exports.sheduleRequests = function Cron(params) {
       // After reading file using streams
       let departureTimes = [];
       //pipe read rwuest stream to write stream
-
+      let departureTimeStrings = []
       readJsonRequestsFile.pipe(writeRequests);
       //read stream on end
       readJsonRequestsFile.on('end',function(){
@@ -49,6 +49,8 @@ exports.sheduleRequests = function Cron(params) {
         for (const batch in requestArray) {
 
         departureTimes.push(new Date(requestArray[batch].time));
+        departureTimeStrings.push(requestArray[batch].time);
+        
         
         }
         
@@ -69,15 +71,15 @@ exports.sheduleRequests = function Cron(params) {
             const job = schedule.scheduleJob( departureTimes[batch], function(){
               
                 let index = 0;
+                let departureTime = departureTimeStrings[batch];
 
                 requestArray[batch]["strings"].forEach(request => {
               
                   console.log(requestArray[batch].strings[index])
                   console.log("...")
                   console.log(requestArray[batch].ids[index]);
-
+                 
                   let requestId = requestArray[batch].ids[index];
-                  let departureTime = requestArray[batch].time;
 
                   getTraffic.getTrafficInfo(request, requestId, departureTime );
 
@@ -91,7 +93,6 @@ exports.sheduleRequests = function Cron(params) {
          startingTime = new Date(departureTimes[0]).toUTCString();
 
         console.log(`Scheduled  ${totalRequests} requests  @ cron.js, line 50 on ${new Date().toUTCString()} and starting time is ${startingTime}`);
-
       })
       //read request file stream on error
       readJsonRequestsFile.on('error',function(){
