@@ -22,21 +22,32 @@ html
      console.log("Doing node in script tag") 
      console.log("scrip inside pug");
      
-     const arch=document.getElementById("archive") 
+     const arch = document.getElementById("archive") 
      arch.addEventListener('click',async ()=>{
+
        await fetch('http://localhost:5000/archives');
+       
+
      },false) 
 
-     const exelDb=document.getElementById("excelDb") 
+     const exelDb = document.getElementById("excelDb") 
 
      excelDb.addEventListener('click',async ()=>{
-       await fetch('http://localhost:5000/output');
-       window.alert(' output data gotten')
+          
+         await fetch('http://localhost:5000/output')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+          })
+          .catch(error => {
+            console.log(error)
+          });
 
       },false) 
-      const jsonDb=document.getElementById("jsonDb") 
+
+      const jsonDb = document.getElementById("jsonDb") 
       
-      jsonDb.addEventListener('click',()=>{
+      jsonDb.addEventListener('click',async ()=>{
          await fetch('http://localhost:5000/backup');
 
       },false)   
