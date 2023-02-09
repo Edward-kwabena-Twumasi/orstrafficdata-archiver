@@ -168,7 +168,11 @@ else if (runTime < preProcess.endTime){
 
         await dB.initializeDb();
 
+        async function createJsonDb(params) {
+          await writeFile("./database/data.json",JSON.stringify([],null,2));
 
+        }
+        await createJsonDb();
       const currentDateTime = new Date();
 
       if (checkValidDay( days[currentDateTime.getDay()]) && currentDateTime >= programStartDate && currentDateTime < compEndTime) {
@@ -208,6 +212,11 @@ const job = schedule.scheduleJob({ start: programStartDate, end: programStopDate
 }, async function(){
 
   await dB.initializeDb();
+  async function createJsonDb(params) {
+    await writeFile("./database/data.json",JSON.stringify([],null,2));
+
+  }
+  await createJsonDb();
 
    if (cancelinitjob) {
       initJob.cancel();
@@ -269,11 +278,12 @@ server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "pug");
 
 //render home page on navigation to root
-server.get('/',(req,res)=>{
+server.get('/', (req,res)=>{
   
   console.log("Home route loaded or refreshed")
   res.render("index", dynamicData);
 
+ 
 })
 // fetch databse data as json
 async function downloadJsonData() {
@@ -292,8 +302,7 @@ async function downloadJsonData() {
 // stream database data as json
 async function streamDataToJson() {
   // Create a write stream to the JSON file
-   await writeFile("./output/data.json",JSON.stringify([],null,2));
-  const jsonWriteStream = createWriteStream('./output/data.json');
+  const jsonWriteStream = createWriteStream('./database/data.json');
 
   // Write the opening square bracket to the JSON file
   jsonWriteStream.write('[');
@@ -320,25 +329,14 @@ async function streamDataToJson() {
 }
 
 
-//download json backup file
-server.get('/backup',(req,res)=>{
-  dynamicData.message="Get backup"
-    res.download("./output/output.json",(err) =>
-    { 
-  if (err) {
-    res.send("<h1>Output backup file not available for download</h1>"
-    )
-  }
-     });
 
-
-})
 
 //download output,excel file
 server.get('/output',async (req,res)=>{
   try {
-
+    //  await streamDataToJson();
      const trafficData = await downloadJsonData();
+     await writeFile("./database/data.json",JSON.stringify(trafficData,null,2));
     //  const streamedJsonData = await streamDataToJson();
     //  console.log(streamedJsonData);
     //  res.download("./output/output.json",(err) =>
@@ -364,8 +362,22 @@ server.get('/output',async (req,res)=>{
     
   }
 
+//download json backup file
+server.get('/backup',(req,res)=>{
+  dynamicData.message="Get backup"
+    res.download("./output/output.json",(err) =>
+    { 
+  if (err) {
+    res.send("<h1>Output backup file not available for download</h1>"
+    )
+  }
+     });
+
 
 })
+
+})
+
 
 //The archives path for downloads
 
