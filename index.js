@@ -9,6 +9,8 @@ const port=process.env.PORT || 5000;
 const myxlsx=require("xlsx");
 const dirName="output";
 const fs =require("fs");
+const { createWriteStream } = require('fs');
+const { writeFile } = require('fs/promises');
 const archiveOutput =require("./archive");
 const manageFiles=require('./filesys');
 const preProcess=require('./preprocessInput');
@@ -273,6 +275,50 @@ server.get('/',(req,res)=>{
   res.render("index", dynamicData);
 
 })
+// fetch databse data as json
+async function downloadJsonData() {
+  // Fetch all records from the database
+  const records = await dB.Response.findAll();
+
+  // Convert the records to JSON
+  const jsonData = records.map(record => record.toJSON());
+
+  // You can now download the JSON data (this example just logs the data to the console)
+  console.log(jsonData);
+
+  return jsonData;
+}
+
+// stream database data as json
+async function streamDataToJson() {
+  // Create a write stream to the JSON file
+   await writeFile("./output/data.json",JSON.stringify([],null,2));
+  const jsonWriteStream = createWriteStream('./output/data.json');
+
+  // Write the opening square bracket to the JSON file
+  jsonWriteStream.write('[');
+
+  // Stream the data from the database
+  const stream = dB.Response.findAll({ raw: true }).stream();
+
+  // Process each record as it's streamed from the database
+  let firstRecord = true;
+  for await (const record of stream) {
+    if (firstRecord) {
+      firstRecord = false;
+    } else {
+      jsonWriteStream.write(',');
+    }
+    jsonWriteStream.write(JSON.stringify(record));
+  }
+
+  // Write the closing square bracket to the JSON file
+  jsonWriteStream.write(']');
+
+  // Close the write stream
+  jsonWriteStream.end();
+}
+
 
 //download json backup file
 server.get('/backup',(req,res)=>{
@@ -292,8 +338,19 @@ server.get('/backup',(req,res)=>{
 server.get('/output',async (req,res)=>{
   try {
 
-     const trafficData = await dB.Response.findAll();
-     window.alert(trafficData.length);
+     const trafficData = await downloadJsonData();
+    //  const streamedJsonData = await streamDataToJson();
+    //  console.log(streamedJsonData);
+    //  res.download("./output/output.json",(err) =>
+    //     { 
+
+    //   if (err) {
+    //     res.send("<h1>Output backup file not available for download</h1>"
+    //     )
+    //   }
+    //  });
+     res.json(trafficData);
+
      return;
      res.download("./output/output_data.xlsx",(err) =>
   { 
