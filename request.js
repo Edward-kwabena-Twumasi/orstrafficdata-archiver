@@ -1,8 +1,7 @@
 'use strict'
 const axios = require('axios');
 const fs = require('fs/promises');
-const myxlsx=require("xlsx");
-const { Reasponse } = require('./database/dbconn');
+const { Response } = require('./database/dbconn');
 
 //let distmat="https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.686813%2c-1.573793&origins=6.703662%2c-1.528848&mode=driving&traffic_mode=best-guess&departure_time=1641960000000&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg";
 
@@ -12,35 +11,37 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
 
     try {
       //Try making a request to distance matrix api using axios
-      const response = await axios.get(requestString);
+      const responseJson = await axios.get(requestString);
+      console.log(responseJson);
+   
       //console.log(response);
       //console.log(response.data)
       let distance_km ,duration_m, duration_traffic_m, destinations, origins;
 
-      destinations = response.data.destination_addresses[0];
-      origins = response.data.origin_addresses[0];
+      destinations = responseJson.data.destination_addresses[0];
+      origins = responseJson.data.origin_addresses[0];
 
       //extract distance,duration and duration in traffic 
-       for (const row in response.data.rows) {
+       for (const row in responseJson.data.rows) {
       
-       distance_km = response.data.rows[row]["elements"][0].distance;
-       duration_traffic_m = response.data.rows[row]["elements"][0].duration_in_traffic;
-       duration_m = response.data.rows[row]["elements"][0].duration;
+       distance_km = responseJson.data.rows[row]["elements"][0].distance.text;
+       duration_traffic_m = responseJson.data.rows[row]["elements"][0].duration_in_traffic.text;
+       duration_m = responseJson.data.rows[row]["elements"][0].duration.text;
        
        } 
      
-      const Response =  await Response.create({
+      const newTrafficData =  await Response.create({
           requestId: requestId,
           departure: requestTime,
-          distance: distance_km,
-          duration: duration_m,
-          trafficDuration: duration_traffic_m,
-          origins: origins,
-          destinations: destinations
+          distance: distance_km.toString(),
+          duration: duration_m.toString(),
+          trafficDuration: duration_traffic_m.toString(),
+          origins: origins.toString(),
+          destinations: destinations.toString()
 
         }) ;
 
-        console.log(`Item with id ${Response.id} inserted in database`)
+        console.log(`Item with id ${newTrafficData.id} inserted in database`)
              
     //Catch errors if requests couldnt be made 
     } catch (error) {
