@@ -13,11 +13,11 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
       //Try making a request to distance matrix api using axios
       const responseJson = await axios.get(requestString);
      
-      console.log(responseJson);
+      // console.log(responseJson);
 
-      return;
+      // return;
       
-      let distance_km ,duration_m, duration_traffic_m, destinations, origins;
+      // let distance_km ,duration_m, duration_traffic_m, destinations, origins;
 
       destinations = responseJson.data.destination_addresses[0];
       origins = responseJson.data.origin_addresses[0];
