@@ -2,6 +2,8 @@
 const axios = require('axios');
 const fs = require('fs/promises');
 const { Response } = require('./database/dbconn');
+const { logger} = require('./logger');
+
 
 //let distmat="https://maps.googleapis.com/maps/api/distancematrix/json?destinations=6.686813%2c-1.573793&origins=6.703662%2c-1.528848&mode=driving&traffic_mode=best-guess&departure_time=1641960000000&key=AIzaSyCyCr5WebY0cl5VyeBiBxfZ7dOJr9mHnIg";
 
@@ -13,8 +15,6 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
       //Try making a request to distance matrix api using axios
       const responseJson = await axios.get(requestString);
      
-      // console.log(responseJson);
-
       // return;
       
       let distance_km ,duration_m, duration_traffic_m, destinations, origins;
@@ -43,6 +43,8 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
         }) ;
 
         console.log(`Item with id ${newTrafficData.id} inserted in database`)
+       logger.info(`Item with id ${newTrafficData.id} inserted in database`)
+
              
     //Catch errors if requests couldnt be made 
     } catch (error) {
@@ -54,6 +56,11 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
         console.log("Request for | "+requestString)
         console.log("Has failed @ request.js line 53")
         console.log(error.response);
+
+      logger.info("Request error.......")
+      logger.info("Request for | "+requestString)
+      logger.info("Has failed @ request.js line 53")
+      logger.info(error.response);
         
        // console.log(error)
       }
@@ -62,6 +69,9 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
         
         console.log("Error occured making request");
         console.log(error)
+      
+       logger.info("Error occured making request");
+       logger.info(error)
       
       }
     }

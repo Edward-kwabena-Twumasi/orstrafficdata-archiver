@@ -45,9 +45,13 @@
                     Database Backup
                 </a>
 
-                <a id="archive" href="./archives">
-                    Download Archive
+                <a id="logs" >
+                   See logs
                 </a>
+
+
+            </div>
+            <div id="log-output">
 
             </div>
 
@@ -68,42 +72,39 @@
 
      },false) 
     
-    const arch=document.getElementById("archive") 
-    arch.addEventListener('click',()=>{
-      alert("Get archives"+document.querySelector("title").innerText)
-    },false) 
+  
     
     const exelDb=document.getElementById("excelDb") 
     
     excelDb.addEventListener('click',async ()=>{
-        try {
-          const response = await fetch('http://localhost:5000/output', {
-            method: 'GET',
-            responseType: 'blob', // Set the response type to blob
-          });
+      try {
+        const response = await fetch('http://localhost:5000/output', {
+          method: 'GET',
+          responseType: 'arraybuffer', // Set the response type to arraybuffer
+        });
 
-          // Set the filename for the downloaded file
-          const filename = "data.json"; // Set the desired filename here
-          const contentDispositionHeader = response.headers.get('content-disposition');
-          const matches = /filename="(.+)"/.exec(contentDispositionHeader);
-          const fileDownloadName = matches === null ? filename : matches[1];
+        // Set the filename for the downloaded file
+        const filename = "data.xlsx"; // Set the desired filename here
+        const contentDispositionHeader = response.headers.get('content-disposition');
+        const matches = /filename="(.+)"/.exec(contentDispositionHeader);
+        const fileDownloadName = matches === null ? filename : matches[1];
 
-          // Create a new blob from the response data
-          const blob = await response.blob();
+        // Create a new blob from the response data
+        const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
 
-          // Create a new anchor element and set its download and href attributes
-          const downloadLink = document.createElement('a');
-          downloadLink.download = fileDownloadName;
-          downloadLink.href = window.URL.createObjectURL(blob);
+        // Create a new anchor element and set its download and href attributes
+        const downloadLink = document.createElement('a');
+        downloadLink.download = fileDownloadName;
+        downloadLink.href = window.URL.createObjectURL(blob);
 
-          // Programmatically click the download link to start the download
-          document.body.appendChild(downloadLink);
-          downloadLink.click();
-          document.body.removeChild(downloadLink);
-        } catch (error) {
-          console.error(error);
-        }
-    
+        // Programmatically click the download link to start the download
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+      } catch (error) {
+        console.error(error);
+      }
+          
      },false) 
 
      const jsonDb=document.getElementById("jsonDb") 
@@ -138,6 +139,56 @@
         }
     
      },false)   
+
+     const streamLogsBtn = document.getElementById('logs');
+    const logOutput = document.getElementById('log-output');
+
+    // Add click event listener to the "Stream Logs" button
+    streamLogsBtn.addEventListener('click',async () => {
+      // Create a GET request to the "stream-logs" endpoint
+     await fetch('http://localhost:5000/logs')
+        .then(response => {
+          // Get a ReadableStream from the response
+          const stream = response.body;
+          console.log("reading logs")
+
+          // Create a TextDecoder to convert the streamed bytes to text
+          const decoder = new TextDecoder();
+
+          // Create a new ReadableStreamReader to read from the stream
+          const reader = stream.getReader();
+
+          // Define a function to read the next chunk of data from the stream
+          const readChunk = () => {
+            reader.read().then(({ done, value }) => {
+              if (done) {
+                // The stream has ended, close the reader
+                reader.releaseLock();
+              } else {
+                // Convert the bytes to text and append to the log output
+                const chunk = decoder.decode(value, { stream: true });
+                logOutput.textContent += chunk;
+                console.log(chunk)
+
+                // Read the next chunk of data
+                readChunk();
+              }
+            });
+          };
+
+          // Start reading the first chunk of data from the stream
+          readChunk();
+        })
+        .catch(err => console.error(err));
+
+    },false);
+
+
+    const eventSource = new EventSource('/logs');
+
+    eventSource.onmessage = (event) => {
+      logOutput.innerText += event.data + '\n';
+    };
     
     </script>
            

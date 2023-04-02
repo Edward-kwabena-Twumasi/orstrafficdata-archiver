@@ -1,0 +1,403 @@
+info: Starting program now at Sun, 02 Apr 2023 18:29:52 GMT
+info: Starting program now at Sun, 02 Apr 2023 18:33:29 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: Sheduling requests now @ app_calender, line 90
+info: Starting program now at Sun, 02 Apr 2023 18:45:00 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Item with id 325 inserted in database
+info: Item with id 326 inserted in database
+info: Item with id 327 inserted in database
+info: Item with id 328 inserted in database
+info: Item with id 329 inserted in database
+info: Item with id 330 inserted in database
+info: Item with id 331 inserted in database
+info: Item with id 332 inserted in database
+info: Item with id 333 inserted in database
+info: Item with id 334 inserted in database
+info: Item with id 335 inserted in database
+info: Item with id 336 inserted in database
+info: Item with id 337 inserted in database
+info: Item with id 338 inserted in database
+info: Item with id 339 inserted in database
+info: Item with id 340 inserted in database
+info: HTTP GET /logs {"meta":{"req":{"headers":{"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/logs","query":{},"url":"/logs"},"res":{"statusCode":500},"responseTime":3}}
+info: Starting program now at Sun, 02 Apr 2023 19:05:21 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Starting program now at Sun, 02 Apr 2023 19:11:16 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Item with id 341 inserted in database
+info: Item with id 342 inserted in database
+info: Item with id 343 inserted in database
+info: Item with id 344 inserted in database
+info: Item with id 346 inserted in database
+info: Item with id 345 inserted in database
+info: Item with id 347 inserted in database
+info: Item with id 348 inserted in database
+info: Item with id 349 inserted in database
+info: Item with id 350 inserted in database
+info: Item with id 351 inserted in database
+info: Item with id 352 inserted in database
+info: Item with id 353 inserted in database
+info: Item with id 354 inserted in database
+info: Item with id 355 inserted in database
+info: Item with id 356 inserted in database
+info: Item with id 357 inserted in database
+info: Item with id 358 inserted in database
+info: Item with id 359 inserted in database
+info: Item with id 360 inserted in database
+info: Item with id 361 inserted in database
+info: Item with id 362 inserted in database
+info: Item with id 363 inserted in database
+info: Item with id 364 inserted in database
+info: Item with id 365 inserted in database
+info: Item with id 366 inserted in database
+info: Item with id 367 inserted in database
+info: Item with id 368 inserted in database
+info: Item with id 369 inserted in database
+info: Item with id 370 inserted in database
+info: Item with id 371 inserted in database
+info: Item with id 372 inserted in database
+info: Starting program now at Sun, 02 Apr 2023 19:36:08 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":8494}}
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Starting program now at Sun, 02 Apr 2023 19:41:31 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Item with id 373 inserted in database
+info: Item with id 374 inserted in database
+info: Item with id 375 inserted in database
+info: Item with id 376 inserted in database
+info: Item with id 377 inserted in database
+info: Item with id 378 inserted in database
+info: Item with id 379 inserted in database
+info: Item with id 380 inserted in database
+info: Item with id 381 inserted in database
+info: Item with id 382 inserted in database
+info: Item with id 383 inserted in database
+info: Item with id 385 inserted in database
+info: Item with id 384 inserted in database
+info: Item with id 386 inserted in database
+info: Item with id 387 inserted in database
+info: Item with id 388 inserted in database
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.684739%2c-0.014527&origins=5.63874%2c0.003986&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.63874%2c0.003986&origins=5.684739%2c-0.014527&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.722403%2c0.01995&origins=5.685501%2c-0.014458&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.684739%2c-0.014527&origins=5.722403%2c0.01995&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.71690909808%2c-0.0142641467567&origins=5.68412932346%2c-0.0143083195112&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.68412932346%2c-0.0143083195112&origins=5.71690909808%2c-0.0142641467567&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Item with id 389 inserted in database
+info: Item with id 390 inserted in database
+info: Item with id 391 inserted in database
+info: Item with id 392 inserted in database
+info: Item with id 393 inserted in database
+info: Item with id 394 inserted in database
+info: Item with id 395 inserted in database
+info: Item with id 396 inserted in database
+info: Item with id 397 inserted in database
+info: Item with id 398 inserted in database
+info: Item with id 400 inserted in database
+info: Item with id 399 inserted in database
+info: Item with id 401 inserted in database
+info: Item with id 402 inserted in database
+info: Item with id 403 inserted in database
+info: Item with id 404 inserted in database
+info: Item with id 405 inserted in database
+info: Item with id 406 inserted in database
+info: Item with id 407 inserted in database
+info: Item with id 408 inserted in database
+info: Item with id 409 inserted in database
+info: Item with id 410 inserted in database
+info: Item with id 411 inserted in database
+info: Item with id 412 inserted in database
+info: Item with id 413 inserted in database
+info: Item with id 414 inserted in database
+info: Item with id 415 inserted in database
+info: Item with id 416 inserted in database
+info: Item with id 418 inserted in database
+info: Item with id 417 inserted in database
+info: Item with id 419 inserted in database
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.66105236764%2c-0.00416221743347&origins=5.69333839927%2c0.0502048443838&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.68531006%2c-0.016268408&origins=5.657333359%2c-0.014255929&mode=driving&traffic_mode=best-guess&departure_time=1680465600&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.684739%2c-0.014527&origins=5.63874%2c0.003986&mode=driving&traffic_mode=best-guess&departure_time=1680466500&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.684739%2c-0.014527&origins=5.722403%2c0.01995&mode=driving&traffic_mode=best-guess&departure_time=1680466500&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.63874%2c0.003986&origins=5.684739%2c-0.014527&mode=driving&traffic_mode=best-guess&departure_time=1680466500&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.68412932346%2c-0.0143083195112&origins=5.66379124035%2c-0.0683151048687&mode=driving&traffic_mode=best-guess&departure_time=1680466500&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.68531006%2c-0.016268408&origins=5.657333359%2c-0.014255929&mode=driving&traffic_mode=best-guess&departure_time=1680466500&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.722403%2c0.01995&origins=5.685501%2c-0.014458&mode=driving&traffic_mode=best-guess&departure_time=1680467400&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.63874%2c0.003986&origins=5.684739%2c-0.014527&mode=driving&traffic_mode=best-guess&departure_time=1680467400&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.66379124035%2c-0.0683151048687&origins=5.68412932346%2c-0.0143083195112&mode=driving&traffic_mode=best-guess&departure_time=1680467400&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Request error.......
+info: Request for | https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=5.63815926438%2c0.00349226214154&origins=5.616107%2c-0.024874&mode=driving&traffic_mode=best-guess&departure_time=1680467400&key=66N8za8Sm3A8sdJrvPxwS4NI8pdut
+info: Has failed @ request.js line 53
+info: undefined
+info: Item with id 420 inserted in database
+info: Item with id 421 inserted in database
+info: Item with id 422 inserted in database
+info: Item with id 423 inserted in database
+info: Item with id 424 inserted in database
+info: Item with id 425 inserted in database
+info: Item with id 426 inserted in database
+info: Item with id 427 inserted in database
+info: Item with id 428 inserted in database
+info: Item with id 429 inserted in database
+info: Item with id 430 inserted in database
+info: Item with id 431 inserted in database
+info: Item with id 432 inserted in database
+info: Item with id 433 inserted in database
+info: Item with id 434 inserted in database
+info: Item with id 435 inserted in database
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","if-modified-since":"Sun, 02 Apr 2023 19:36:48 GMT","if-none-match":"W/\"22a60-1874378e2e7\"","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":5235}}
+info: Starting program now at Sun, 02 Apr 2023 20:49:51 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: Item with id 436 inserted in database
+info: Item with id 437 inserted in database
+info: Item with id 438 inserted in database
+info: Item with id 439 inserted in database
+info: Item with id 440 inserted in database
+info: Item with id 441 inserted in database
+info: Item with id 442 inserted in database
+info: Item with id 444 inserted in database
+info: Item with id 443 inserted in database
+info: Item with id 445 inserted in database
+info: Item with id 446 inserted in database
+info: Item with id 447 inserted in database
+info: Item with id 448 inserted in database
+info: Item with id 449 inserted in database
+info: Item with id 450 inserted in database
+info: Item with id 451 inserted in database
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","if-modified-since":"Sun, 02 Apr 2023 20:48:34 GMT","if-none-match":"W/\"288a6-18743ba9604\"","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":6750}}
+info: Starting program now at Sun, 02 Apr 2023 21:15:22 GMT
+info: Program start date : Wed Mar 01 2023 00:00:00 GMT+0000 (Greenwich Mean Time)
+info: Calender stop date : Sat, 15 Apr 2023 00:00:00 GMT
+info: ..parsing trip times for preprocessing @ app.js ,line 103..
+info: ..Getting run time from trip times after parsing @ app.js ,line 116..
+info: Requests start time(hrs) .. 0.... Requests end time(hrs) .....23
+info: Sheduling requests now @ app_calender, line 90
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","if-modified-since":"Sun, 02 Apr 2023 21:06:13 GMT","if-none-match":"W/\"2a0a5-18743cabf7a\"","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":9004}}
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","if-modified-since":"Sun, 02 Apr 2023 21:15:41 GMT","if-none-match":"W/\"2a0a5-18743d369d0\"","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":3038}}
+info: Updating the requests data file @ app.js ,line 283 
+info: ---------------------------------------------
+info: file  succesfully updated @ app.js ,line 308
+info: Day's requests file updated
+info: -----------PROGRAM READY----------------------
+info: HTTP GET /output {"meta":{"req":{"headers":{"accept":"*/*","accept-encoding":"gzip, deflate","accept-language":"en-GB,en;q=0.9","connection":"keep-alive","cookie":"amplitude_id_eb9e4621db21faf713ee50c637f3cf36=eyJkZXZpY2VJZCI6IjBkMDI3MGRlLWQwZTMtNGU1My05NzNhLTQ1ODZmNjRhOGEzZVIiLCJ1c2VySWQiOm51bGwsIm9wdE91dCI6ZmFsc2UsInNlc3Npb25JZCI6MTY3OTYxMTAwOTU0OCwibGFzdEV2ZW50VGltZSI6MTY3OTYxMTA4OTg4MCwiZXZlbnRJZCI6MCwiaWRlbnRpZnlJZCI6MCwic2VxdWVuY2VOdW1iZXIiOjB9; csrftoken=jgoHtqEGcvOfz7vuowknWh0GBgJUyemhXYrZCt9pd8ZBZ7xf6nY90eSml29iTnTg; sessionid=tj2cllh92wgedkc140fu1282fk504w0x","host":"localhost:5000","if-modified-since":"Sun, 02 Apr 2023 21:15:53 GMT","if-none-match":"W/\"2a0a5-18743d39979\"","referer":"http://localhost:5000/","user-agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"},"httpVersion":"1.1","method":"GET","originalUrl":"/output","query":{},"url":"/output"},"res":{"statusCode":200},"responseTime":2724}}
+info: Item with id 452 inserted in database
+info: Item with id 453 inserted in database
+info: Item with id 454 inserted in database
+info: Item with id 455 inserted in database
+info: Item with id 456 inserted in database
+info: Item with id 457 inserted in database
+info: Item with id 458 inserted in database
+info: Item with id 459 inserted in database
+info: Item with id 460 inserted in database
+info: Item with id 461 inserted in database
+info: Item with id 462 inserted in database
+info: Item with id 463 inserted in database
+info: Item with id 464 inserted in database
+info: Item with id 465 inserted in database
+info: Item with id 467 inserted in database
+info: Item with id 466 inserted in database
+info: Item with id 468 inserted in database
+info: Item with id 469 inserted in database
+info: Item with id 470 inserted in database
+info: Item with id 471 inserted in database
+info: Item with id 472 inserted in database
+info: Item with id 473 inserted in database
+info: Item with id 474 inserted in database
+info: Item with id 475 inserted in database
+info: Item with id 476 inserted in database
+info: Item with id 478 inserted in database
+info: Item with id 477 inserted in database
+info: Item with id 479 inserted in database
+info: Item with id 480 inserted in database
+info: Item with id 482 inserted in database
+info: Item with id 481 inserted in database
+info: Item with id 483 inserted in database
+info: Item with id 484 inserted in database
+info: Item with id 485 inserted in database
+info: Item with id 487 inserted in database
+info: Item with id 486 inserted in database
+info: Item with id 488 inserted in database
+info: Item with id 489 inserted in database
+info: Item with id 490 inserted in database
+info: Item with id 491 inserted in database
+info: Item with id 492 inserted in database
+info: Item with id 493 inserted in database
+info: Item with id 494 inserted in database
+info: Item with id 495 inserted in database
+info: Item with id 496 inserted in database
+info: Item with id 497 inserted in database
+info: Item with id 498 inserted in database
+info: Item with id 499 inserted in database
+info: Item with id 500 inserted in database
+info: Item with id 501 inserted in database
+info: Item with id 502 inserted in database
+info: Item with id 503 inserted in database
+info: Item with id 504 inserted in database
+info: Item with id 505 inserted in database
+info: Item with id 508 inserted in database
+info: Item with id 506 inserted in database
+info: Item with id 507 inserted in database
+info: Item with id 509 inserted in database
+info: Item with id 510 inserted in database
+info: Item with id 511 inserted in database
+info: Item with id 512 inserted in database
+info: Item with id 513 inserted in database
+info: Item with id 514 inserted in database
+info: Item with id 515 inserted in database
+info: Item with id 516 inserted in database
+info: Item with id 517 inserted in database
+info: Item with id 518 inserted in database
+info: Item with id 519 inserted in database
+info: Item with id 520 inserted in database
+info: Item with id 521 inserted in database
+info: Item with id 522 inserted in database
+info: Item with id 523 inserted in database
+info: Item with id 524 inserted in database
+info: Item with id 525 inserted in database
+info: Item with id 526 inserted in database
+info: Item with id 528 inserted in database
+info: Item with id 527 inserted in database
+info: Item with id 529 inserted in database
+info: Item with id 530 inserted in database
+info: Item with id 531 inserted in database
+info: Item with id 532 inserted in database
+info: Item with id 533 inserted in database
+info: Item with id 534 inserted in database
+info: Item with id 535 inserted in database
+info: Item with id 536 inserted in database
+info: Item with id 537 inserted in database
+info: Item with id 538 inserted in database
+info: Item with id 539 inserted in database
+info: Item with id 540 inserted in database
+info: Item with id 541 inserted in database
+info: Item with id 542 inserted in database
+info: Item with id 543 inserted in database
+info: Item with id 544 inserted in database
+info: Item with id 545 inserted in database
+info: Item with id 546 inserted in database
+info: Item with id 547 inserted in database
+info: Item with id 548 inserted in database
+info: Item with id 549 inserted in database
+info: Item with id 550 inserted in database
+info: Item with id 551 inserted in database
+info: Item with id 552 inserted in database
+info: Item with id 553 inserted in database
+info: Item with id 554 inserted in database
+info: Item with id 555 inserted in database
+info: Item with id 556 inserted in database
+info: Item with id 557 inserted in database
+info: Item with id 558 inserted in database
+info: Item with id 559 inserted in database
+info: Item with id 560 inserted in database
+info: Item with id 561 inserted in database
+info: Item with id 562 inserted in database
+info: Item with id 563 inserted in database

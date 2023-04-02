@@ -17,6 +17,9 @@ const preProcess=require('./preprocessInput');
 const createZip=require('./zipper');
 const backup=require('./backuptofolder');
 const dB = require('./database/dbconn')
+const expressWinston = require('express-winston');
+
+const { logger, streamLogs } = require('./logger');
 var initJob;
 var cancelinitjob=false;
 var inputFile;
@@ -26,26 +29,42 @@ server.use(express.static(path.join(__dirname, "public")));
 server.use(express.static(path.join(__dirname, "archivehistory")));
 server.use(express.static(path.join(__dirname, "output")));
 server.use(express.static(path.join(__dirname, "archives")));
-
+server.use(express.json());
+server.use(expressWinston.logger({ winstonInstance: logger }));
 //Set the pug view engine using express
 const dynamicData={"title":"Treck traffic"}
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "pug");
 
-//render home page on navigation to root
 
-server.get('/', (req,res)=>{
+server.get('/', async (req,res)=>{
   
-  console.log("Home route loaded or refreshed")
+  console.log("Home route loaded or refreshed");
+  console.log("Something for you before render")
+  logger.info('Home route loaded or refreshed...');
+  // Your preprocessing code here
+  logger.info('Program is ready to start');
+  
   res.render("index", dynamicData);
 
- 
+
+});
+
+server.get('/logs', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+  streamLogs(res);
 });
 
 // start execution
-server.get('/start', (req,res)=>{
+server.get('/start', (req,res)=> {
 
 console.log(`Starting program now at ${(new Date().toUTCString())}`);
+logger.info(`Starting program now at ${(new Date().toUTCString())}`);
+
+
+  ///logs
 
 try {
 
@@ -86,6 +105,8 @@ startYear = calenderStartDate[2]*1;
 
 const programStartDate = new Date(Date.UTC(startYear,startMonth-1,startDay));
 console.log(`Program start date : ${programStartDate}`);
+logger.info(`Program start date : ${programStartDate}`);
+
 
 
 let stopDay = calenderStopDate[0]*1,
@@ -97,6 +118,8 @@ const programStopDate = new Date(Date.UTC(stopYear,stopMonth-1,stopDay));
 const compEndTime=new Date(Date.UTC(stopYear,stopMonth-1,stopDay+1));
 
 console.log("Calender stop date : "+ programStopDate.toUTCString());
+logger.info("Calender stop date : "+ programStopDate.toUTCString());
+
 
 //Make backup of files
 //backup.backupFiles()
@@ -186,6 +209,8 @@ else if (runTime < preProcess.endTime){
 
     console.log(currentHours+"......")
     console.log("Sheduling requests now @ app_calender, line 90")
+    logger.info("Sheduling requests now @ app_calender, line 90")
+
 
 //First job .Will be executed immediately if program starts during hours inbetween start and end hours
     initJob = schedule.scheduleJob({ start: programStartDate, end: programStopDate, hour:(currentHours),minute:(currentMinutes+1)
@@ -447,6 +472,8 @@ if (err) {
 
  
 })
+
+
 
 //Let server listen on the specified port
 server.listen(port,"0.0.0.0",()=>{

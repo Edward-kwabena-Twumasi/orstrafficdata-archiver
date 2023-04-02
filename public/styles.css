@@ -64,6 +64,22 @@ p {
     align-self: center;
 }
 
+#log-output {
+    padding: 15px 0 20px 15px;
+
+    margin-bottom: 25px;
+    color: black;
+    border: 2px solid;
+    transition: 0.7s;
+    text-align: center;
+    width: 90%;
+    font-size: 24px;
+    border-left: 3px solid;
+    border-radius: 50px;
+    align-self: center;
+    background-color: white;
+}
+
 .NavButtons a:hover {
     background-color: white;
     color: black;
