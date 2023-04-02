@@ -22,6 +22,14 @@ html
      console.log("Doing node in script tag") 
      console.log("scrip inside pug");
      
+     const start = document.getElementById("start") 
+     start.addEventListener('click',async ()=>{
+
+       await fetch('http://localhost:5000/start');
+       
+
+     },false) 
+
      const arch = document.getElementById("archive") 
      arch.addEventListener('click',async ()=>{
 

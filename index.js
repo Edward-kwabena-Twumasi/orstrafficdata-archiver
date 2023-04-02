@@ -21,6 +21,32 @@ var initJob;
 var cancelinitjob=false;
 var inputFile;
 
+//Set static files for express serve them
+server.use(express.static(path.join(__dirname, "public")));
+server.use(express.static(path.join(__dirname, "archivehistory")));
+server.use(express.static(path.join(__dirname, "output")));
+server.use(express.static(path.join(__dirname, "archives")));
+
+//Set the pug view engine using express
+const dynamicData={"title":"Treck traffic"}
+server.set("views", path.join(__dirname, "views"));
+server.set("view engine", "pug");
+
+//render home page on navigation to root
+
+server.get('/', (req,res)=>{
+  
+  console.log("Home route loaded or refreshed")
+  res.render("index", dynamicData);
+
+ 
+});
+
+// start execution
+server.get('/start', (req,res)=>{
+
+console.log(`Starting program now at ${(new Date().toUTCString())}`);
+
 try {
 
    inputFile = myxlsx.readFile("./input/input_data.xlsx",{});
@@ -270,21 +296,8 @@ function shutdown(signal) {
   
 }
 
-
-
-//Set the pug view engine using express
-const dynamicData={"title":"Treck traffic"}
-server.set("views", path.join(__dirname, "views"));
-server.set("view engine", "pug");
-
-//render home page on navigation to root
-server.get('/', (req,res)=>{
   
-  console.log("Home route loaded or refreshed")
-  res.render("index", dynamicData);
 
- 
-})
 // fetch databse data as json
 async function downloadJsonData() {
   // Fetch all records from the database
@@ -424,16 +437,6 @@ if (err) {
 }
 
 
-//Set static files for express serve them
-server.use(express.static(path.join(__dirname, "public")));
-server.use(express.static(path.join(__dirname, "archivehistory")));
-server.use(express.static(path.join(__dirname, "output")));
-server.use(express.static(path.join(__dirname, "archives")));
-
-//Let server listen on the specified port
-server.listen(port,"0.0.0.0",()=>{
-  console.log( `server listening on http://localhost:${port} at ${(new Date().toUTCString())}`);
-})
 
 } catch (error) {
   console.log(error);
@@ -441,3 +444,11 @@ server.listen(port,"0.0.0.0",()=>{
   console.log("Or some sheets may not contain the right format")
 
 }
+
+ 
+})
+
+//Let server listen on the specified port
+server.listen(port,"0.0.0.0",()=>{
+  console.log( `server listening on http://localhost:${port} at ${(new Date().toUTCString())}`);
+})
