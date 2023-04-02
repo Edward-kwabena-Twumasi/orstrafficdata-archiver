@@ -17,7 +17,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
 
       // return;
       
-      // let distance_km ,duration_m, duration_traffic_m, destinations, origins;
+      let distance_km ,duration_m, duration_traffic_m, destinations, origins;
 
       destinations = responseJson.data.destination_addresses[0];
       origins = responseJson.data.origin_addresses[0];
@@ -33,7 +33,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
      
       const newTrafficData =  await Response.create({
           requestId: requestId,
-          departure: departureTime,
+          departureTime: departureTime,
           distance: distance_km.toString(),
           duration: duration_m.toString(),
           trafficDuration: duration_traffic_m.toString(),

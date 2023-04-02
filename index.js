@@ -347,16 +347,20 @@ server.get('/output',async (req,res)=>{
     //     )
     //   }
     //  });
-     res.json(trafficData);
+    // res.json(trafficData);
 
-     return;
-     res.download("./output/output_data.xlsx",(err) =>
-  { 
-    if (err) {
-      res.send("<h1>Output file not available for download</h1>"
-      )
-    }
-   });
+    setTimeout(() => {
+          res.download("./database/data.json",(err) =>
+    { 
+      if (err) {
+        res.send("<h1>Output file not available for download</h1>"
+        )
+      }
+      console.log("File downloaded successfully")
+    });
+    }, 500);
+  
+   
 
   } catch (error) {
     

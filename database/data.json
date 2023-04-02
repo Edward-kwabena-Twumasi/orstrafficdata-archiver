@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": 1,
+    "requestId": "4",
+    "departureTime": null,
+    "distance": "5.7 km",
+    "duration": "8 mins",
+    "trafficDuration": "6 mins",
+    "destinations": "N1, Tema, Ghana",
+    "origins": "N1, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.860Z",
+    "updatedAt": "2023-04-02T10:30:02.860Z"
+  },
+  {
+    "id": 2,
+    "requestId": "12",
+    "departureTime": null,
+    "distance": "12.5 km",
+    "duration": "21 mins",
+    "trafficDuration": "25 mins",
+    "destinations": "Kpone, Tema, Ghana",
+    "origins": "Valco Rd, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.867Z",
+    "updatedAt": "2023-04-02T10:30:02.867Z"
+  },
+  {
+    "id": 3,
+    "requestId": "7",
+    "departureTime": null,
+    "distance": "33.4 km",
+    "duration": "30 mins",
+    "trafficDuration": "24 mins",
+    "destinations": "Harbour Rd, Tema, Ghana",
+    "origins": "N1, Ghana",
+    "createdAt": "2023-04-02T10:30:02.869Z",
+    "updatedAt": "2023-04-02T10:30:02.869Z"
+  },
+  {
+    "id": 4,
+    "requestId": "11",
+    "departureTime": null,
+    "distance": "7.2 km",
+    "duration": "23 mins",
+    "trafficDuration": "22 mins",
+    "destinations": "Heavy Industrial Area, Tema, Ghana",
+    "origins": "Kpone, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.871Z",
+    "updatedAt": "2023-04-02T10:30:02.871Z"
+  },
+  {
+    "id": 5,
+    "requestId": "14",
+    "departureTime": null,
+    "distance": "6 km",
+    "duration": "7 mins",
+    "trafficDuration": "7 mins",
+    "destinations": "Tema, Ghana",
+    "origins": "Accra, Ghana",
+    "createdAt": "2023-04-02T10:30:02.872Z",
+    "updatedAt": "2023-04-02T10:30:02.872Z"
+  },
+  {
+    "id": 6,
+    "requestId": "8",
+    "departureTime": null,
+    "distance": "8.7 km",
+    "duration": "13 mins",
+    "trafficDuration": "14 mins",
+    "destinations": "N1, Ghana",
+    "origins": "Harbour Rd, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.874Z",
+    "updatedAt": "2023-04-02T10:30:02.874Z"
+  },
+  {
+    "id": 7,
+    "requestId": "3",
+    "departureTime": null,
+    "distance": "8.9 km",
+    "duration": "23 mins",
+    "trafficDuration": "24 mins",
+    "destinations": "Harbour Rd, Tema, Ghana",
+    "origins": "N1, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.875Z",
+    "updatedAt": "2023-04-02T10:30:02.875Z"
+  },
+  {
+    "id": 8,
+    "requestId": "16",
+    "departureTime": null,
+    "distance": "10 km",
+    "duration": "16 mins",
+    "trafficDuration": "16 mins",
+    "destinations": "Tema, Ghana",
+    "origins": "Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.876Z",
+    "updatedAt": "2023-04-02T10:30:02.876Z"
+  },
+  {
+    "id": 9,
+    "requestId": "1",
+    "departureTime": null,
+    "distance": "5.8 km",
+    "duration": "8 mins",
+    "trafficDuration": "7 mins",
+    "destinations": "Harbour Rd, Tema, Ghana",
+    "origins": "Harbour Rd, Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.877Z",
+    "updatedAt": "2023-04-02T10:30:02.877Z"
+  },
+  {
+    "id": 10,
+    "requestId": "15",
+    "departureTime": null,
+    "distance": "4.2 km",
+    "duration": "8 mins",
+    "trafficDuration": "8 mins",
+    "destinations": "Tema, Ghana",
+    "origins": "Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.878Z",
+    "updatedAt": "2023-04-02T10:30:02.878Z"
+  },
+  {
+    "id": 11,
+    "requestId": "13",
+    "departureTime": null,
+    "distance": "5.5 km",
+    "duration": "7 mins",
+    "trafficDuration": "6 mins",
+    "destinations": "Accra, Ghana",
+    "origins": "Tema, Ghana",
+    "createdAt": "2023-04-02T10:30:02.934Z",
+    "updatedAt": "2023-04-02T10:30:02.934Z"
+  }
+]
