@@ -337,17 +337,7 @@ server.get('/output',async (req,res)=>{
     //  await streamDataToJson();
      const trafficData = await downloadJsonData();
      await writeFile("./database/data.json",JSON.stringify(trafficData,null,2));
-    //  const streamedJsonData = await streamDataToJson();
-    //  console.log(streamedJsonData);
-    //  res.download("./output/output.json",(err) =>
-    //     { 
-
-    //   if (err) {
-    //     res.send("<h1>Output backup file not available for download</h1>"
-    //     )
-    //   }
-    //  });
-    // res.json(trafficData);
+   
 
     setTimeout(() => {
           res.download("./database/data.json",(err) =>

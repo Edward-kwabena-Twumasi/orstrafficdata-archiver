@@ -34,14 +34,33 @@ html
 
      excelDb.addEventListener('click',async ()=>{
           
-         await fetch('http://localhost:5000/output')
-          .then(response => response.json())
-          .then(data => {
-            console.log(data)
-          })
-          .catch(error => {
-            console.log(error)
+          try {
+          const response = await fetch('http://localhost:5000/output', {
+            method: 'GET',
+            responseType: 'blob', // Set the response type to blob
           });
+
+          // Set the filename for the downloaded file
+          const filename = "data.json"; // Set the desired filename here
+          const contentDispositionHeader = response.headers.get('content-disposition');
+          const matches = /filename="(.+)"/.exec(contentDispositionHeader);
+          const fileDownloadName = matches === null ? filename : matches[1];
+
+          // Create a new blob from the response data
+          const blob = await response.blob();
+
+          // Create a new anchor element and set its download and href attributes
+          const downloadLink = document.createElement('a');
+          downloadLink.download = fileDownloadName;
+          downloadLink.href = window.URL.createObjectURL(blob);
+
+          // Programmatically click the download link to start the download
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+        } catch (error) {
+          console.error(error);
+        }
 
       },false) 
 
