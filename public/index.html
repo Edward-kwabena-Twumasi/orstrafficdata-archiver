@@ -67,7 +67,7 @@
     const start = document.getElementById("start") 
      start.addEventListener('click',async ()=>{
 
-       await fetch('http://localhost:5000/start');
+       await fetch('https://dataarch.onrender.com/start');
        
 
      },false) 
@@ -78,7 +78,7 @@
     
     excelDb.addEventListener('click',async ()=>{
       try {
-        const response = await fetch('http://localhost:5000/output', {
+        const response = await fetch('https://dataarch.onrender.com/output', {
           method: 'GET',
           responseType: 'arraybuffer', // Set the response type to arraybuffer
         });
@@ -111,7 +111,7 @@
      
      jsonDb.addEventListener('click',async ()=>{
         try {
-          const response = await fetch('http://localhost:5000/output', {
+          const response = await fetch('https://dataarch.onrender.com/output', {
             method: 'GET',
             responseType: 'blob', // Set the response type to blob
           });
@@ -146,7 +146,7 @@
     // Add click event listener to the "Stream Logs" button
     streamLogsBtn.addEventListener('click',async () => {
       // Create a GET request to the "stream-logs" endpoint
-     await fetch('http://localhost:5000/logs')
+     await fetch('https://dataarch.onrender.com/logs')
         .then(response => {
           // Get a ReadableStream from the response
           const stream = response.body;

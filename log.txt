@@ -406,3 +406,19 @@ info: ---------------------------------------------
 info: file  succesfully updated @ app.js ,line 308
 info: Day's requests file updated
 info: -----------PROGRAM READY----------------------
+info: Item with id 565 inserted in database
+info: Item with id 567 inserted in database
+info: Item with id 564 inserted in database
+info: Item with id 566 inserted in database
+info: Item with id 568 inserted in database
+info: Item with id 570 inserted in database
+info: Item with id 569 inserted in database
+info: Item with id 573 inserted in database
+info: Item with id 571 inserted in database
+info: Item with id 572 inserted in database
+info: Item with id 574 inserted in database
+info: Item with id 575 inserted in database
+info: Item with id 577 inserted in database
+info: Item with id 576 inserted in database
+info: Item with id 578 inserted in database
+info: Item with id 579 inserted in database
