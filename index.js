@@ -32,10 +32,28 @@ server.use(express.static(path.join(__dirname, "archives")));
 server.use(express.json());
 server.use(expressWinston.logger({ winstonInstance: logger }));
 //Set the pug view engine using express
-const dynamicData={"title":"Treck traffic"}
 server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "pug");
 
+
+// Clear database
+
+  // async function initDb(params) {
+  //   await dB.initializeDb();
+  // }
+
+  // initDb();
+  
+  // dB.Response.destroy({ where: {} }) // Pass an empty object to delete all records
+  // .then(() => {
+  //   console.log('All records in the response table have been deleted');
+  // })
+  // .catch((err) => {
+  //   console.error('Error while deleting records:', err);
+  // });
+
+  // render homepage
+const dynamicData={"title":"Treck traffic"}
 
 server.get('/', async (req,res)=>{
   
@@ -45,6 +63,7 @@ server.get('/', async (req,res)=>{
   // Your preprocessing code here
   logger.info('Program is ready to start');
   
+
   res.render("index", dynamicData);
 
 
@@ -181,15 +200,15 @@ function checkValidDay(day) {
 
 //shdeule archiving of output file to after the last request
 
-schedule.scheduleJob('00 '+ preProcess.endTime +' * * *',function(){
+// schedule.scheduleJob('00 '+ preProcess.endTime +' * * *',function(){
 
 
-  console.log("Creating archives at ");
-  console.log(new Date().toUTCString());
+//   console.log("Creating archives at ");
+//   console.log(new Date().toUTCString());
 
-  archiveOutput.archiver("./output/output.json","./archives","./output/output_data.xlsx","./archives");
+//   archiveOutput.archiver("./output/output.json","./archives","./output/output_data.xlsx","./archives");
 
-})
+// })
 
 
 //Check the run times against current time and do scheduling based
@@ -369,8 +388,8 @@ async function streamDataToJson() {
 
 
 
-//download output,excel file
-server.get('/output',async (req,res)=>{
+//download json backup file
+server.get('/backup',async (req,res)=>{
   try {
     //  await streamDataToJson();
      const trafficData = await downloadJsonData();
@@ -394,22 +413,39 @@ server.get('/output',async (req,res)=>{
     
   }
 
-//download json backup file
-server.get('/backup',(req,res)=>{
-  dynamicData.message="Get backup"
-    res.download("./output/output.json",(err) =>
-    { 
-  if (err) {
-    res.send("<h1>Output backup file not available for download</h1>"
-    )
+
+});
+
+//download excel output file
+server.get('/output', async (req, res) => {
+  try {
+    const trafficData = await downloadJsonData();
+
+    const workbook = myxlsx.utils.book_new();
+    const worksheet = myxlsx.utils.json_to_sheet(trafficData);
+
+    myxlsx.utils.book_append_sheet(workbook, worksheet, 'Traffic Data');
+
+    const excelBuffer = myxlsx.write(workbook, { bookType: 'xlsx', type: 'buffer', encoding: 'binary' });
+
+      // Save the excel file on the file system
+      const filePath = './database/traffic_data.xlsx';
+      fs.writeFileSync(filePath, excelBuffer);
+
+    res.set('Content-Disposition', 'attachment; filename="traffic_data.xlsx"');
+
+    res.set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+    res.set('Content-Length', excelBuffer.length);
+
+
+    res.send(excelBuffer);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal server error');
   }
-     });
-
-
-})
-
-})
-
+});
 
 //The archives path for downloads
 

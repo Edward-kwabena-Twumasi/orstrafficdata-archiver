@@ -61,6 +61,7 @@
 
 
     <script>
+      // https://dataarch.onrender.com
     console.log("Doing node in script tag") 
     console.log("scrip inside pug");
 
@@ -72,25 +73,25 @@
 
      },false) 
     
-  
+  // download output file as excel
     
     const exelDb=document.getElementById("excelDb") 
-    
-    excelDb.addEventListener('click',async ()=>{
+        
+        excelDb.addEventListener('click',async ()=>{
       try {
         const response = await fetch('https://dataarch.onrender.com/output', {
           method: 'GET',
-          responseType: 'arraybuffer', // Set the response type to arraybuffer
+          responseType: 'blob', // Set the response type to arraybuffer
         });
 
         // Set the filename for the downloaded file
-        const filename = "data.xlsx"; // Set the desired filename here
+        const filename = "traffic_data.xlsx"; // Set the desired filename here
         const contentDispositionHeader = response.headers.get('content-disposition');
         const matches = /filename="(.+)"/.exec(contentDispositionHeader);
         const fileDownloadName = matches === null ? filename : matches[1];
 
         // Create a new blob from the response data
-        const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+        const blob = new Blob([response.arrayBuffer()], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
 
         // Create a new anchor element and set its download and href attributes
         const downloadLink = document.createElement('a');
@@ -103,15 +104,16 @@
         document.body.removeChild(downloadLink);
       } catch (error) {
         console.error(error);
-      }
-          
-     },false) 
+      }     
+    },false);
+
+     // download backup file as json
 
      const jsonDb=document.getElementById("jsonDb") 
      
      jsonDb.addEventListener('click',async ()=>{
         try {
-          const response = await fetch('https://dataarch.onrender.com/output', {
+          const response = await fetch('https://dataarch.onrender.com/backup', {
             method: 'GET',
             responseType: 'blob', // Set the response type to blob
           });
@@ -139,6 +141,8 @@
         }
     
      },false)   
+
+     // get logs
 
      const streamLogsBtn = document.getElementById('logs');
     const logOutput = document.getElementById('log-output');
