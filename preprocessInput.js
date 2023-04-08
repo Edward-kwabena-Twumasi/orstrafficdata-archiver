@@ -100,7 +100,7 @@ exports.parseTripTimes= function parseTripTimes() {
   console.log("-------------------------------------------------------")
   console.log("parsing trip times for preprocessing @ app.js ,line 101")
   console.log("-------------------------------------------------------")
-  logger.info("..parsing trip times for preprocessing @ app.js ,line 103..")
+ // logger.info("..parsing trip times for preprocessing @ app.js ,line 103..")
 //console.log("creating request times from parsed trip times")
 trip_times_json.map(function(row) {
 
@@ -159,13 +159,13 @@ exports.getRunTime = function getRunTime(params) {
   console.log("------------------------------------------------------------------")
   console.log("Getting run time from trip times after parsing @ app.js ,line 116")
   console.log("------------------------------------------------------------------")
-  logger.info("..Getting run time from trip times after parsing @ app.js ,line 116..")
+ // logger.info("..Getting run time from trip times after parsing @ app.js ,line 116..")
   req_times24hr = [...new Set(req_times24hr)]
   req_times24hr.sort(function(a, b) {
       return a - b;
     });
   console.log("Requests start time(hrs) .. "+req_times24hr[0]/60+".... Requests end time(hrs) ....."+req_times24hr[req_times24hr.length-1]/60);
- logger.info("Requests start time(hrs) .. "+req_times24hr[0]/60+".... Requests end time(hrs) ....."+req_times24hr[req_times24hr.length-1]/60);
+// logger.info("Requests start time(hrs) .. "+req_times24hr[0]/60+".... Requests end time(hrs) ....."+req_times24hr[req_times24hr.length-1]/60);
 
   let startTime = req_times24hr[0]/60;
   let endTime=req_times24hr[req_times24hr.length-1]/60;
@@ -181,7 +181,7 @@ exports.mapIdsToTime= function mapIdsToTime(params) {
   console.log("----------------------------------------------")
   console.log("Sorting trip times after parsing @ app.js ,line 132")
   console.log("----------------------------------------------")
-  logger.info("Sorting trip times after parsing @ app.js ,line 132")
+ // logger.info("Sorting trip times after parsing @ app.js ,line 132")
 
   req_times24hr = [...new Set(req_times24hr)]
   req_times24hr.sort(function(a, b) {
@@ -340,7 +340,7 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
     console.log("----------------------------------------------------")
     console.log("Updating the requests data file @ app.js ,line 283 ")
     console.log("---------------------------------------------------")
-    logger.info("Updating the requests data file @ app.js ,line 283 ")
+   // logger.info("Updating the requests data file @ app.js ,line 283 ")
 
     for (const data in existingRequestData) {
 
@@ -372,10 +372,10 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
         try {
           await fsPromise.writeFile("./input/request_data24hr.json", JSON.stringify(existingRequestData,null,2))
 
-         logger.info("---------------------------------------------")
-         logger.info("file  succesfully updated @ app.js ,line 308")
-         logger.info("Day's requests file updated")
-         logger.info("-----------PROGRAM READY----------------------");
+        // logger.info("---------------------------------------------")
+        // logger.info("file  succesfully updated @ app.js ,line 308")
+        // logger.info("Day's requests file updated")
+        // logger.info("-----------PROGRAM READY----------------------");
          console.log("---------------------------------------------")
          console.log("file  succesfully updated @ app.js ,line 308")
          console.log("Day's requests file updated")
@@ -387,7 +387,7 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
 
         } catch (error) {
           console.log("This error was thrown during request data file creation @ app.js 335")
-          logger.info("This error was thrown during request data file creation @ app.js 335")
+         // logger.info("This error was thrown during request data file creation @ app.js 335")
 
             console.log(error)
         }
@@ -398,10 +398,10 @@ exports.readRequestFile = async function readRequestFile(parseTripTimes,mapIdsTo
 
 readJsonTempRequestFile.on('error', async function(err) { 
 
-  logger.info("----------------------------------------------")
-  logger.info("24hr request file not ready for  reading @ app.js, line 278 ")
-  logger.info("Creating it now...")
-  logger.info("----------------------------------------------")
+ // logger.info("----------------------------------------------")
+ // logger.info("24hr request file not ready for  reading @ app.js, line 278 ")
+ // logger.info("Creating it now...")
+ // logger.info("----------------------------------------------")
   console.log("----------------------------------------------")
   console.log("24hr request file not ready for  reading @ app.js, line 278 ")
   console.log("Creating it now...")
@@ -450,12 +450,12 @@ readJsonTempRequestFile.on('error', async function(err) {
     console.log("----------------------------------------------")
 
     console.log("Creating 24hr requests  file @ app.js,line 356")
-   logger.info("----------------------------------------------")
-   logger.info("----------------------------------------------")
-   logger.info("----------------------------------------------")
+  // logger.info("----------------------------------------------")
+  // logger.info("----------------------------------------------")
+  // logger.info("----------------------------------------------")
 
-   logger.info("Creating 24hr requests  file @ app.js,line 356")
-   logger.info("----------------------------------------------")
+  // logger.info("Creating 24hr requests  file @ app.js,line 356")
+  // logger.info("----------------------------------------------")
 
     try {
 
@@ -464,9 +464,9 @@ readJsonTempRequestFile.on('error', async function(err) {
       console.log("----------------------------------------------")
       console.log("---------------PROGRAM READY-----------------");
 
-      logger.info("Request file for 24 hour period succesfully created @ app.js, line 357")
-      logger.info("----------------------------------------------")
-      logger.info("---------------PROGRAM READY-----------------");
+     // logger.info("Request file for 24 hour period succesfully created @ app.js, line 357")
+     // logger.info("----------------------------------------------")
+     // logger.info("---------------PROGRAM READY-----------------");
 
       requestsNdOutput.sheduleRequests();
 
@@ -484,7 +484,7 @@ readJsonTempRequestFile.on('error', async function(err) {
         console.log("----------------------------------------------")
 
         console.log("Temporary/template requests data file succesfully created @ app.js, line 368")
-       logger.info("Temporary/template requests data file succesfully created @ app.js, line 368")
+      // logger.info("Temporary/template requests data file succesfully created @ app.js, line 368")
 
             
 

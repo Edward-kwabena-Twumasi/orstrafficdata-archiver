@@ -45,9 +45,9 @@
                     Database Backup
                 </a>
 
-                <a id="logs" >
+                <!-- <a id="logs" >
                    See logs
-                </a>
+                </a> -->
 
 
             </div>
@@ -142,57 +142,7 @@
     
      },false)   
 
-     // get logs
 
-     const streamLogsBtn = document.getElementById('logs');
-    const logOutput = document.getElementById('log-output');
-
-    // Add click event listener to the "Stream Logs" button
-    streamLogsBtn.addEventListener('click',async () => {
-      // Create a GET request to the "stream-logs" endpoint
-     await fetch('https://dataarch.onrender.com/logs')
-        .then(response => {
-          // Get a ReadableStream from the response
-          const stream = response.body;
-          console.log("reading logs")
-
-          // Create a TextDecoder to convert the streamed bytes to text
-          const decoder = new TextDecoder();
-
-          // Create a new ReadableStreamReader to read from the stream
-          const reader = stream.getReader();
-
-          // Define a function to read the next chunk of data from the stream
-          const readChunk = () => {
-            reader.read().then(({ done, value }) => {
-              if (done) {
-                // The stream has ended, close the reader
-                reader.releaseLock();
-              } else {
-                // Convert the bytes to text and append to the log output
-                const chunk = decoder.decode(value, { stream: true });
-                logOutput.textContent += chunk;
-                console.log(chunk)
-
-                // Read the next chunk of data
-                readChunk();
-              }
-            });
-          };
-
-          // Start reading the first chunk of data from the stream
-          readChunk();
-        })
-        .catch(err => console.error(err));
-
-    },false);
-
-
-    const eventSource = new EventSource('/logs');
-
-    eventSource.onmessage = (event) => {
-      logOutput.innerText += event.data + '\n';
-    };
     
     </script>
            
