@@ -42,8 +42,8 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
 
         }) ;
 
-        console.log(`Item with id ${newTrafficData.id} inserted in database`)
-       logger.info(`Item with id ${newTrafficData.id} inserted in database`)
+        console.log(`Item with id ${requestId} inserted in database, row number ${newTrafficData.id}`)
+       //logger.info(`Item with id ${newTrafficData.id} inserted in database`)
 
              
     //Catch errors if requests couldnt be made 
