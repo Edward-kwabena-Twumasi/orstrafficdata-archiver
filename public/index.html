@@ -97,7 +97,7 @@
     const start = document.getElementById("start") 
      start.addEventListener('click',async ()=>{
 
-       await fetch('http://localhost:5000/start');
+       await fetch('/start');
        
 
      },false) 
@@ -108,7 +108,7 @@
         
         excelDb.addEventListener('click',async ()=>{
       try {
-        const response = await fetch('http://localhost:5000/output', {
+        const response = await fetch('/output', {
           method: 'GET',
           responseType: 'blob', // Set the response type to arraybuffer
         });
@@ -142,7 +142,7 @@
      
      jsonDb.addEventListener('click',async ()=>{
         try {
-          const response = await fetch('http://localhost:5000/backup', {
+          const response = await fetch('/backup', {
             method: 'GET',
             responseType: 'blob', // Set the response type to blob
           });
