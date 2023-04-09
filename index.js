@@ -7,19 +7,16 @@ const path=require('path');
 const server=express();
 const port=process.env.PORT || 5000;
 const myxlsx=require("xlsx");
-const dirName="output";
 const fs =require("fs");
 const { createWriteStream } = require('fs');
 const { writeFile } = require('fs/promises');
-const archiveOutput =require("./archive");
-const manageFiles=require('./filesys');
-const preProcess=require('./preprocessInput');
 const createZip=require('./zipper');
-const backup=require('./backuptofolder');
+//const backup=require('./backuptofolder');
 const dB = require('./database/dbconn')
 const expressWinston = require('express-winston');
-
 const { logger, streamLogs } = require('./logger');
+const multer = require('multer');
+
 var initJob;
 var cancelinitjob=false;
 var inputFile;
@@ -69,6 +66,20 @@ server.get('/', async (req,res)=>{
 
 });
 
+const storage = multer.diskStorage({
+  destination: './input/',
+  filename: function(req, file, cb) {
+    cb(null,'input_data.xlsx');
+  }
+});
+
+const upload = multer({ storage: storage });
+
+server.post('/upload', upload.single('input'), (req, res) => {
+  console.log(req.file); // Log information about the uploaded file
+  res.send('File uploaded successfully'); // Send a response to the client
+});
+
 // server.get('/logs', (req, res) => {
 //   res.setHeader('Content-Type', 'text/event-stream');
 //   res.setHeader('Cache-Control', 'no-cache');
@@ -78,6 +89,9 @@ server.get('/', async (req,res)=>{
 
 // start execution
 server.get('/start', (req,res)=> {
+
+const preProcess=require('./preprocessInput');
+
 
 console.log(`Starting program now at ${(new Date().toUTCString())}`);
 ////logger.info(`Starting program now at ${(new Date().toUTCString())}`);
@@ -351,40 +365,10 @@ async function downloadJsonData() {
   const jsonData = records.map(record => record.toJSON());
 
   // You can now download the JSON data (this example just logs the data to the console)
-  console.log(jsonData);
+  console.log(jsonData.length +" records downloaded");
 
   return jsonData;
 }
-
-// stream database data as json
-async function streamDataToJson() {
-  // Create a write stream to the JSON file
-  const jsonWriteStream = createWriteStream('./database/data.json');
-
-  // Write the opening square bracket to the JSON file
-  jsonWriteStream.write('[');
-
-  // Stream the data from the database
-  const stream = dB.Response.findAll({ raw: true }).stream();
-
-  // Process each record as it's streamed from the database
-  let firstRecord = true;
-  for await (const record of stream) {
-    if (firstRecord) {
-      firstRecord = false;
-    } else {
-      jsonWriteStream.write(',');
-    }
-    jsonWriteStream.write(JSON.stringify(record));
-  }
-
-  // Write the closing square bracket to the JSON file
-  jsonWriteStream.write(']');
-
-  // Close the write stream
-  jsonWriteStream.end();
-}
-
 
 
 

@@ -14,9 +14,14 @@ require("dotenv").config()
 const distancematrixai_api_key=process.env.distancematrixai_api_key
 //Read input file from the output folder 
 //if it yet exists or access it from root folder
+let input_work_book;
+try {
+   input_work_book = myxlsx.readFile("./input/input_data.xlsx",{})
 
-
-let input_work_book = myxlsx.readFile("./input/input_data.xlsx",{})
+} catch (error) {
+  console.log("No input file found. Upload one!");
+  return;
+}
 
 
 let inputFileSheets = input_work_book.SheetNames;
@@ -31,6 +36,8 @@ let trip_times_json = myxlsx.utils.sheet_to_json(trip_times_sheet);
 
  //console.log(trip_times_json)
 let od_pairs_json = myxlsx.utils.sheet_to_json(od_pairs_sheet);
+
+
  
 //all request times
 let reqtimes=[];

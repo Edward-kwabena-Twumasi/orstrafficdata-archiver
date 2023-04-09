@@ -1,7 +1,11 @@
-const {Sequelize , Model, DataTypes}  = require('sequelize');
-const path = require('path')
+require("dotenv").config();
+const db_url = process.env.PORT ? process.env.live_db : process.env.local_db;
 
-const sequelize = new Sequelize('postgres://data_archiver_user:Oe6I0ltverdlps791SMCK3pVV4YRuPJ3@dpg-cgauq182qv267ue4rf7g-a.oregon-postgres.render.com/data_archiver',{
+//const url = "postgres://data_archiver_user:Oe6I0ltverdlps791SMCK3pVV4YRuPJ3@dpg-cgauq182qv267ue4rf7g-a.oregon-postgres.render.com/data_archiver";
+
+const {Sequelize , Model, DataTypes}  = require('sequelize');
+
+const sequelize = new Sequelize(db_url,{
     
     dialect: 'postgres',
       port: 5432, // replace with your port number if different
