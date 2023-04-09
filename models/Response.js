@@ -8,10 +8,7 @@ const {Sequelize , Model, DataTypes}  = require('sequelize');
 const sequelize = new Sequelize(db_url,{
     
     dialect: 'postgres',
-      port: 5432, // replace with your port number if different
-    dialectOptions :{
-        ssl:true
-    }
+      port: 5432
   });
 
 // new Sequelize({
