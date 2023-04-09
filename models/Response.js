@@ -10,8 +10,7 @@ const sequelize = new Sequelize(db_url,{
     dialect: 'postgres',
       port: 5432, // replace with your port number if different
     dialectOptions :{
-        ssl:true,
-        rejectUnauthorized: false
+        ssl:true
     }
   });
 
