@@ -1,24 +1,39 @@
-require("dotenv").config();
-const db_url = process.env.PORT ? process.env.live_db : process.env.local_db;
+// Create traffic response model and initialize sequelize with database
 
-//const url = "postgres://data_archiver_user:Oe6I0ltverdlps791SMCK3pVV4YRuPJ3@dpg-cgauq182qv267ue4rf7g-a.oregon-postgres.render.com/data_archiver";
+const path = require("path");
+require("dotenv").config();
+
+const db_url = process.env.PORT ? process.env.live_db : process.env.local_db;
 
 const {Sequelize , Model, DataTypes}  = require('sequelize');
 
+ // use sqlite local db 
+// const sequelize = new Sequelize({
+//         dialect: 'sqlite',
+//         storage: path.join("ouput","traffic_data")
+//  });
+
+
+// connect from withing render
+// const sequelize = new Sequelize(db_url,{
+    
+//     dialect: 'postgres',
+//       port: 5432
+//   });
+
+//Connect from outside render
 const sequelize = new Sequelize(db_url,{
     
     dialect: 'postgres',
-      port: 5432
+      port: 5432,
+      dialectOptions :{
+        ssl:true,
+      rejectUnauthorized: false // for self-signed certificates
+      }
   });
 
-// new Sequelize({
-//     dialect: 'sqlite',
-//     storage: path.join("ouput","traffic_data")
-//   });
 
-//postgres://data_archiver_user:Oe6I0ltverdlps791SMCK3pVV4YRuPJ3@dpg-cgauq182qv267ue4rf7g-a/data_archiver
-
- class TrafficResponse extends Model {};
+class TrafficResponse extends Model {};
 
  TrafficResponse.init(
 {

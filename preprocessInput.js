@@ -1,4 +1,4 @@
-//App.js file owns the functionalities of reading and preprocessing 
+//Preprocess.js file owns the functionalities of reading and preprocessing 
 //the input file the program is to run with and then creating 
 //a request file to be scheduled by the program
 
@@ -11,7 +11,7 @@ const requestsNdOutput=require('./cron')
 const Stream = require('stream');
 require("dotenv").config()
 
-const distancematrixai_api_key=process.env.distancematrixai_api_key
+const ors_api_key=process.env.ors_api_key
 //Read input file from the output folder 
 //if it yet exists or access it from root folder
 let input_work_book;
@@ -249,18 +249,38 @@ for (const k in req_times24hr) {
 //Function to build request strings
 ////////////////////
 
- function genRequestString(palceCordinates,key,mode,trafficMode) {
+// For google and distancematrix.ai distance matrix service providers
+
+//  function genRequestString(palceCordinates,key,mode,trafficMode) {
+//     //const timemil=departure.getTime()
+//     let destinations=`${palceCordinates.origin_latitude}%2c${palceCordinates.origin_longitude}`;
+//     let origins=`${palceCordinates.destination_latitude}%2c${palceCordinates.destination_longitude}`;
+//     let baseUrl="https://api.distancematrix.ai/maps/api/distancematrix/json";
+//     let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=today&key=${key}`;
+
+//     return thisRequest;
+   
+//   }
+
+  // For Open Route Services distance matrix service provider
+
+  function genRequestString(palceCordinates,key,mode,trafficMode) {
     //const timemil=departure.getTime()
-    let destinations=`${palceCordinates.origin_latitude}%2c${palceCordinates.origin_longitude}`;
-    let origins=`${palceCordinates.destination_latitude}%2c${palceCordinates.destination_longitude}`;
-    let baseUrl="https://api.distancematrix.ai/maps/api/distancematrix/json";
-    let thisRequest=`${baseUrl}?destinations=${destinations}&origins=${origins}&mode=${mode}&traffic_mode=${trafficMode}&departure_time=today&key=${key}`;
+    let origins = [palceCordinates.origin_latitude, palceCordinates.origin_longitude];
+
+    let destinations = [palceCordinates.destination_latitude, palceCordinates.destination_longitude];
+
+    let locations = [destinations,origins];
+    
+    let body = JSON.stringify({"locations":locations,"destinations":[0],"sources":[1]})
+
+    let baseUrl="https://api.openrouteservice.org/v2/matrix/driving-car";
+    let thisRequest=`${baseUrl}+${body}+${key}`;
 
     return thisRequest;
    
   }
-
-
+  
 //2
 //createe requests for the day
 
@@ -301,7 +321,7 @@ let ids=[]
      
      if (od_pairs_json[k].trip_id == timeAndIds.ids[m]) {
        
-    let requeststring = genRequestString(od_pairs_json[k],distancematrixai_api_key,"driving","best-guess");
+    let requeststring = genRequestString(od_pairs_json[k],ors_api_key,"driving","best-guess");
     requestStrings.push(requeststring)
     ids.push(id)
     

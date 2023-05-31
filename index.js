@@ -33,21 +33,6 @@ server.set("views", path.join(__dirname, "views"));
 server.set("view engine", "pug");
 
 
-// Clear database
-
-  // async function initDb(params) {
-  //   await dB.initializeDb();
-  // }
-
-  // initDb();
-  
-  // dB.Response.destroy({ where: {} }) // Pass an empty object to delete all records
-  // .then(() => {
-  //   console.log('All records in the response table have been deleted');
-  // })
-  // .catch((err) => {
-  //   console.error('Error while deleting records:', err);
-  // });
 
   // render homepage
 const dynamicData={"title":"Treck traffic"}
@@ -80,12 +65,7 @@ server.post('/upload', upload.single('input'), (req, res) => {
   res.send('File uploaded successfully'); // Send a response to the client
 });
 
-// server.get('/logs', (req, res) => {
-//   res.setHeader('Content-Type', 'text/event-stream');
-//   res.setHeader('Cache-Control', 'no-cache');
-//   res.setHeader('Connection', 'keep-alive');
-//   streamLogs(res);
-// });
+
 
 // start execution
 server.get('/start', (req,res)=> {

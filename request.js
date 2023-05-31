@@ -10,8 +10,36 @@ const { logger} = require('./logger');
 //currentdatase  is supplied as argument.It is the contents of output.json file
 
 exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId, departureTime) {
-
+   
     try {
+
+       // For ors
+ //split request string to get body,url and key
+  let urlBodyAuthArray = requestString.split('+');
+  
+  const config = {
+    method: 'post',
+    url: urlBodyAuthArray[0],
+    headers: {
+      'Accept': 'application/json, application/geo+json, application/gpx+xml, img/png; charset=utf-8',
+      'Authorization': `Bearer ${urlBodyAuthArray[2]}`,
+      'Content-Type': 'application/json; charset=utf-8'
+    },
+    data: urlBodyAuthArray[1]
+  };
+
+  axios(config)
+    .then(function (response) {
+      console.log('Status:', response.status);
+      console.log('Headers:', JSON.stringify(response.headers));
+      console.log('Response:', response.data);
+    })
+    .catch(function (error) {
+      console.log('Error:', error);
+    });
+
+return;
+
       //Try making a request to distance matrix api using axios
       const responseJson = await axios.get(requestString);
      
