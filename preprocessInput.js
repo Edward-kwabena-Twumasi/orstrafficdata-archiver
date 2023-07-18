@@ -266,9 +266,9 @@ for (const k in req_times24hr) {
 
   function genRequestString(palceCordinates,key,mode,trafficMode) {
     //const timemil=departure.getTime()
-    let origins = [palceCordinates.origin_latitude, palceCordinates.origin_longitude];
+    let origins = [palceCordinates.origin_longitude,palceCordinates.origin_latitude];
 
-    let destinations = [palceCordinates.destination_latitude, palceCordinates.destination_longitude];
+    let destinations = [palceCordinates.destination_longitude,palceCordinates.destination_latitude];
 
     let locations = [destinations,origins];
     
