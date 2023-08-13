@@ -38,7 +38,6 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
       console.log('Error:', error);
     });
 
-return;
 
       //Try making a request to distance matrix api using axios
       const responseJson = await axios.get(requestString);
@@ -66,7 +65,8 @@ return;
           duration: duration_m.toString(),
           trafficDuration: duration_traffic_m.toString(),
           origins: origins.toString(),
-          destinations: destinations.toString()
+          destinations: destinations.toString(),
+          provider:"ors"
 
         }) ;
 

@@ -15,22 +15,22 @@ const {Sequelize , Model, DataTypes}  = require('sequelize');
 
 
 // connect from withing render
-// const sequelize = new Sequelize(db_url,{
-    
-//     dialect: 'postgres',
-//       port: 5432
-//   });
-
-//Connect from outside render
 const sequelize = new Sequelize(db_url,{
     
     dialect: 'postgres',
-      port: 5432,
-      dialectOptions :{
-        ssl:true,
-      rejectUnauthorized: false // for self-signed certificates
-      }
+      port: 5432
   });
+
+//Connect from outside render
+// const sequelize = new Sequelize(db_url,{
+    
+//     dialect: 'postgres',
+//       port: 5432,
+//       dialectOptions :{
+//         ssl:true,
+//       rejectUnauthorized: false // for self-signed certificates
+//       }
+//   });
 
 
 class TrafficResponse extends Model {};
@@ -63,6 +63,10 @@ class TrafficResponse extends Model {};
         allowNul: false,
     },
     origins : {
+        type: DataTypes.STRING,
+        allowNul: false,
+    },
+    provider : {
         type: DataTypes.STRING,
         allowNul: false,
     },
