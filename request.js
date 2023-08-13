@@ -29,34 +29,24 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
   };
 
   axios(config)
-    .then(function (response) {
-      console.log('Status:', response.status);
-      console.log('Headers:', JSON.stringify(response.headers));
-      console.log('Response:', response.data);
-    })
-    .catch(function (error) {
-      console.log('Error:', error);
-    });
-
-
-      //Try making a request to distance matrix api using axios
-      const responseJson = await axios.get(requestString);
+    .then(async function (response) {
      
-      // return;
-      
+      console.log('Response:', response.data);
+    
+     
       let distance_km ,duration_m, duration_traffic_m, destinations, origins;
 
-      destinations = responseJson.data.destination_addresses[0];
-      origins = responseJson.data.origin_addresses[0];
+      destinations = response.data["destinations"][0].location;
+      origins = response.data["sources"][0].location;;
 
-      //extract distance,duration and duration in traffic 
-       for (const row in responseJson.data.rows) {
       
-       distance_km = responseJson.data.rows[row]["elements"][0].distance.text;
-       duration_traffic_m = responseJson.data.rows[row]["elements"][0].duration_in_traffic.text;
-       duration_m = responseJson.data.rows[row]["elements"][0].duration.text;
+       distance_km = 10;
+       duration_traffic_m = response.data["durations"][0][0];
+       duration_m = response.data["durations"][0][0];
        
-       } 
+       console.log('Response:', {d:distance_km ,t:duration_m,tt: duration_traffic_m,dest: destinations,or: origins});
+
+  return;
      
       const newTrafficData =  await Response.create({
           requestId: requestId,
@@ -70,6 +60,10 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
 
         }) ;
 
+      })
+      .catch(function (error) {
+        console.log('Error:', error);
+      });
         console.log(`Item with id ${requestId} inserted in database, row number ${newTrafficData.id}`)
        //logger.info(`Item with id ${newTrafficData.id} inserted in database`)
 

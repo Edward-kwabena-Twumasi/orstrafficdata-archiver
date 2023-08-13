@@ -272,7 +272,7 @@ for (const k in req_times24hr) {
 
     let locations = [destinations,origins];
     
-    let body = JSON.stringify({"locations":locations,"destinations":[0],"sources":[1]})
+    let body = JSON.stringify({"locations":locations,"destinations":[0],"sources":[1],"metrics":["distance","duration"]})
 
     let baseUrl="https://api.openrouteservice.org/v2/matrix/driving-car";
     let thisRequest=`${baseUrl}+${body}+${key}`;
