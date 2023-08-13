@@ -34,26 +34,25 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
       console.log('Response:', response.data);
     
      
-      let distance_km ,duration_m, duration_traffic_m, destinations, origins;
+      let distance_m ,duration_m, duration_traffic_s, destinations, origins;
 
       destinations = response.data["destinations"][0].location;
       origins = response.data["sources"][0].location;;
 
       
-       distance_km = 10;
-       duration_traffic_m = response.data["durations"][0][0];
+       distance_m = response.data["distances"][0][0];
+       duration_traffic_s = response.data["durations"][0][0];
        duration_m = response.data["durations"][0][0];
        
-       console.log('Response:', {d:distance_km ,t:duration_m,tt: duration_traffic_m,dest: destinations,or: origins});
+       console.log('Response:', {d:distance_m ,t:duration_m,tt: duration_traffic_s,dest: destinations,or: origins});
 
-  return;
      
       const newTrafficData =  await Response.create({
           requestId: requestId,
           departureTime: departureTime,
-          distance: distance_km.toString(),
+          distance: distance_m.toString(),
           duration: duration_m.toString(),
-          trafficDuration: duration_traffic_m.toString(),
+          trafficDuration: duration_traffic_s.toString(),
           origins: origins.toString(),
           destinations: destinations.toString(),
           provider:"ors"
