@@ -44,7 +44,7 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
        duration_traffic_s = response.data["durations"][0][0];
        duration_m = response.data["durations"][0][0];
        
-       console.log('Response:', {d:distance_m ,t:duration_m,tt: duration_traffic_s,dest: destinations,or: origins});
+      // console.log('Response:', {d:distance_m ,t:duration_m,tt: duration_traffic_s,dest: destinations,or: origins});
 
      
       const newTrafficData =  await Response.create({
@@ -63,7 +63,6 @@ exports.getTrafficInfo = async function getTrafficInfo(requestString, requestId,
       .catch(function (error) {
         console.log('Error:', error);
       });
-        console.log(`Item with id ${requestId} inserted in database, row number ${newTrafficData.id}`)
        //logger.info(`Item with id ${newTrafficData.id} inserted in database`)
 
              
